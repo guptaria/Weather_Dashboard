@@ -1,6 +1,7 @@
 
 $(".button1").on("click", function (event) {
     event.preventDefault();
+    var keyCount=0;
     var city = $("#city");
     var input_cityEl = $("#input_city").val();
     yourKey = "0ac03fde2ce68a22887f1b9d8af1d003";
@@ -20,13 +21,16 @@ $(".button1").on("click", function (event) {
         var h2El = $("<h2>");
         // h2El.text(input_cityEl);
          city.prepend(h2El);
-        var currentName=response.name;
+         var currentName=response.name;
+         localStorage.setItem(keyCount,currentName );
+        
+        keyCount=keyCount+1;
        var image= (`<img src="https://openweathermap.org/img/wn/${response.weather[0].icon}@2x.png">`);
         // city.prepend(h2El,image);
         h2El.append(`${currentName} ${image}`);
 
        
-        localStorage.setItem("city", input_cityEl);
+        
         var result = response.main;
         city.append($("<p>").text(`Humidity:${result.humidity}%`));
         city.append($("<p>").text(`Temperature:${result.temp}°F`));
@@ -70,7 +74,7 @@ $(".button1").on("click", function (event) {
                 var cbody = $("<div>").addClass("card-body");
                 var date = $("<h5>").addClass("card-title").text(`(${response.list[i].dt_txt})`);
                 cbody.append(date);
-                cbody.append(`<img src="https://openweathermap.org/img/wn/${response.list[1].weather[0].icon}@2x.png">`);
+                cbody.append(`<img src="https://openweathermap.org/img/wn/${response.list[i].weather[0].icon}@2x.png">`);
                 var temp = $("<h5>").addClass("card-title").text(`Temp:${response.list[i].main.temp}°F`);
                 var humidity = $("<h5>").addClass("card-title").text(`Humidity:${response.list[i].main.humidity}%`);
                 cbody.append(temp, humidity);

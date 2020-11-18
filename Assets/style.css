@@ -4,10 +4,18 @@
     padding: 5px;
 }
 body{
-    /* background-image: url("Assets/image_weather.jpg"); */
+    background-image: url("Assets/image_weather.jpg");
     /* background-size: 2000px; */
-    background-repeat: no-repeat;
+    min-height: 380px;
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+  /* Needed to position the navbar */
+  position: relative;
 }
+
 /* #city{
     text-align: left;
     border-style: ridge;
