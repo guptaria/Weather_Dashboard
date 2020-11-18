@@ -1,0 +1,96 @@
+.header{
+    background-color:lightblue;
+    text-align: center;
+    padding: 5px;
+}
+body{
+    /* background-image: url("Assets/image_weather.jpg"); */
+    /* background-size: 2000px; */
+    background-repeat: no-repeat;
+}
+/* #city{
+    text-align: left;
+    border-style: ridge;
+    border-color: lightslategray;
+    width: 910px;
+    height: 300px;
+    padding-left: 10px;
+    margin-left: 20px;
+    /* float:left; */
+    
+    #city{
+       width:800px;
+       height:300px;
+       padding: 10px;
+       margin: 10px; 
+       margin-top: 30px; 
+    }
+ #container{
+    display: flex;
+    flex-wrap: wrap;
+}  
+
+.navbar{
+    /* float: left; */
+    width: 400px;
+    height:300px;
+    /* border:solid; */
+    padding: 10px;
+    padding-left: 10px;
+    margin: 30px;  
+}
+/* 
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: none;
+  } */
+  
+  /* #forecast{
+      width:200px;
+      height:100px;
+      border:solid;
+      margin-left: 500px;
+      margin: 5px;
+  } */
+  /* #city p:last-child{
+      display: inline;
+      background-color: coral;
+  } */
+ /* #containerForecast{
+    width: 800px;
+    height: 300px;
+    margin-left: 450px;
+    margin-top: 20px;
+    padding-top: 10px;
+ } */
+ /* #containerForest h2{
+    padding-top: 10px;
+
+ } */
+
+#containerForecast{
+display:flex;
+width:1250px;
+height:300px;
+padding: 10px;
+padding-left: 10px;
+margin: 30px;
+margin-top: 20px;
+
+
+
+ }
+ .card{
+     margin:5px;
+     color:white;
+   
+ }
+ .navbar{
+     padding-top: 10px;
+     
+ }
+ p{
+     padding-left: 10px;
+   
+ }
