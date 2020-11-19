@@ -5,9 +5,9 @@
 }
 body{
     background-image: url("./image_weather.jpg");
-    /* background-size: 2000px; */
+  
     min-height: 380px;
-  /* Center and scale the image nicely */
+ 
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -15,23 +15,15 @@ body{
   /* Needed to position the navbar */
   position: relative;
 }
-
-/* #city{
-    text-align: left;
-    border-style: ridge;
-    border-color: lightslategray;
-    width: 910px;
-    height: 300px;
-    padding-left: 10px;
-    margin-left: 20px;
-    /* float:left; */
     
     #city{
        width:800px;
-       height:300px;
+       height:320px;
        padding: 10px;
        margin: 10px; 
        margin-top: 30px; 
+       color:white;
+       
        background-color: transparent;
        
     }
@@ -42,10 +34,10 @@ body{
 }  
 
 .navbar{
-    /* float: left; */
+  
     width: 400px;
     height:300px;
-    /* border:solid; */
+   
     padding: 10px;
     padding-left: 10px;
     margin: 30px;  
@@ -53,35 +45,7 @@ body{
     align-items: flex-start;
     background-color: transparent !important;
 }
-/* 
-.clearfix::after {
-    content: "";
-    clear: both;
-    display: none;
-  } */
-  
-  /* #forecast{
-      width:200px;
-      height:100px;
-      border:solid;
-      margin-left: 500px;
-      margin: 5px;
-  } */
-  /* #city p:last-child{
-      display: inline;
-      background-color: coral;
-  } */
- /* #containerForecast{
-    width: 800px;
-    height: 300px;
-    margin-left: 450px;
-    margin-top: 20px;
-    padding-top: 10px;
- } */
- /* #containerForest h2{
-    padding-top: 10px;
 
- } */
 
 #containerForecast{
 display:flex;

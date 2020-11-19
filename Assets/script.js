@@ -36,9 +36,6 @@ $(".button1").on("click", function (event) {
        var image= (`<img src="https://openweathermap.org/img/wn/${response.weather[0].icon}@2x.png">`);
         // city.prepend(h2El,image);
         h2El.append(`${currentName} ${image}`);
-
-       
-        
         var result = response.main;
         city.append($("<p>").text(`Humidity:${result.humidity}%`));
         city.append($("<p>").text(`Temperature:${result.temp}°F`));
