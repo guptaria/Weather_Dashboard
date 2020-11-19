@@ -31,7 +31,7 @@ $(".button1").on("click", function (event) {
              cityArray.push(currentName);
          }
          localStorage.setItem("cities",JSON.stringify(cityArray) );
-        
+         
         keyCount=keyCount+1;
        var image= (`<img src="https://openweathermap.org/img/wn/${response.weather[0].icon}@2x.png">`);
         // city.prepend(h2El,image);
