@@ -1,12 +1,15 @@
+var cityArray=JSON.parse(localStorage.getItem("cities")) || [];
 
 $(".button1").on("click", function (event) {
     event.preventDefault();
+    
     var keyCount=0;
     var city = $("#city");
     var input_cityEl = $("#input_city").val();
     yourKey = "0ac03fde2ce68a22887f1b9d8af1d003";
     queryURL1 = "http://api.openweathermap.org/data/2.5/weather?q=" + input_cityEl + "&appid=" + yourKey + "&units=imperial";
-
+    $("#city").empty();
+    $("#containerForecast").empty();
     $.ajax({
         url: queryURL1,
         method: "GET"
@@ -22,7 +25,12 @@ $(".button1").on("click", function (event) {
         // h2El.text(input_cityEl);
          city.prepend(h2El);
          var currentName=response.name;
-         localStorage.setItem(keyCount,currentName );
+         cityArray.includes(currentName);
+         if(!cityArray.includes(currentName))
+         {
+             cityArray.push(currentName);
+         }
+         localStorage.setItem("cities",JSON.stringify(cityArray) );
         
         keyCount=keyCount+1;
        var image= (`<img src="https://openweathermap.org/img/wn/${response.weather[0].icon}@2x.png">`);
