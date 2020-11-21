@@ -3,32 +3,27 @@
     color:white;
     text-align: center;
     padding: 5px;
-}
+        }
 body{
+    /* adding background image */
     background-image: url("./image_weather.jpg");
-  
     min-height: 380px;
- 
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  
-  /* Needed to position the navbar */
-  position: relative;
-}
-    
-    #city{
-       width:800px;
-       height:320px;
-       padding: 10px;
-       margin: 10px; 
-       margin-top: 30px; 
-       color:white;
-       
-       background-color: transparent;
-       
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     }
-
+    
+    /* adding height , width in the current weather jumbostron */
+#city{
+    width:800px;
+    height:320px;
+    padding: 10px;
+    margin: 10px; 
+    margin-top: 30px; 
+    color:white;
+    background-color: transparent;
+    }
+/* setting the whole page as flex */
  #container{
     display: flex;
     flex-wrap: wrap;
@@ -47,22 +42,21 @@ body{
     background-color: transparent !important;
 }
 
-
-#containerForecast{
-display:flex;
-width:1250px;
-height:300px;
-padding: 10px;
-padding-left: 10px;
-margin: 30px;
-margin-top: 20px;
-background-color: transparent;
- }
- .card{
+/* setting styles of weather forescast jumbostron */
+    #containerForecast{
+    display:flex;
+    width:1250px;
+    height:300px;
+    padding: 10px;
+    padding-left: 10px;
+    margin: 30px;
+    margin-top: 20px;
+    background-color: transparent;
+    }
+    .card{
      margin:5px;
      color:white;
-   
- }
+   }
 
  p{
      padding-left: 10px;
