@@ -1,12 +1,13 @@
 // Getting values stored in local storage
 
+
 var cityArray = JSON.parse(localStorage.getItem("cities")) || [];
 // method to get city name and give value of temp, humidity etc
 var getCityWeather = function(cityName) {
     var city = $("#city");
     yourKey = "0ac03fde2ce68a22887f1b9d8af1d003";
     // URL  for current weather
-    queryURL1 = "http://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=" + yourKey + "&units=imperial";
+    queryURL1 = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=" + yourKey + "&units=imperial";
     // empty the city and containerforecast jumbostron so that the current will not concatenate with the older one
     $("#city").empty();
     $("#containerForecast").empty();
@@ -45,7 +46,7 @@ var getCityWeather = function(cityName) {
         var longitude = response.coord.lon;
         var lattitude = response.coord.lat;
         // URL for calculating UVI index
-        queryURL2 = "http://api.openweathermap.org/data/2.5/uvi?q=" + cityName + "&appid=" + yourKey + "&lon=" + longitude + "&lat=" + lattitude;
+        queryURL2 = "https://api.openweathermap.org/data/2.5/uvi?q=" + cityName + "&appid=" + yourKey + "&lon=" + longitude + "&lat=" + lattitude;
 
         $.ajax({
             url: queryURL2,
@@ -65,7 +66,7 @@ var getCityWeather = function(cityName) {
 
         })
         // Querry URL for weather forecast
-        var queryURL3 = "http://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&appid=" + yourKey + "&units=imperial";
+        var queryURL3 = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&appid=" + yourKey + "&units=imperial";
 
         $.ajax({
             url: queryURL3,
