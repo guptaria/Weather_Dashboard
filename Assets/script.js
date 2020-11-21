@@ -1,4 +1,5 @@
 // Getting values stored in local storage
+
 var cityArray = JSON.parse(localStorage.getItem("cities")) || [];
 // method to get city name and give value of temp, humidity etc
 var getCityWeather = function(cityName) {
