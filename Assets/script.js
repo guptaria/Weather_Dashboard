@@ -1,26 +1,9 @@
 var cityArray = JSON.parse(localStorage.getItem("cities")) || [];
 
-// function searchPage()
-// {
-    
-//   for (var i = 0; i < cityArray.length; i++) {
-    
-//     var display = cityArray[i];
-//     var searchHistoryEl=$("#searchHistory");
-//    var emptyDiv=$("<div>");
-//    $("#searchHistory").append(emptyDiv);
-//    emptyDiv.text(display);
-//     
-// }
-     
-$(".button1").on("click", function (event) {
-    event.preventDefault();
-
-    // var keyCount = 0;
+var getCityWeather = function(cityName) {
     var city = $("#city");
-    var input_cityEl = $("#input_city").val();
     yourKey = "0ac03fde2ce68a22887f1b9d8af1d003";
-    queryURL1 = "http://api.openweathermap.org/data/2.5/weather?q=" + input_cityEl + "&appid=" + yourKey + "&units=imperial";
+    queryURL1 = "http://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=" + yourKey + "&units=imperial";
     $("#city").empty();
     $("#containerForecast").empty();
     $.ajax({
@@ -52,7 +35,7 @@ $(".button1").on("click", function (event) {
         var longitude = response.coord.lon;
         var lattitude = response.coord.lat;
 
-        queryURL2 = "http://api.openweathermap.org/data/2.5/uvi?q=" + input_cityEl + "&appid=" + yourKey + "&lon=" + longitude + "&lat=" + lattitude;
+        queryURL2 = "http://api.openweathermap.org/data/2.5/uvi?q=" + cityName + "&appid=" + yourKey + "&lon=" + longitude + "&lat=" + lattitude;
 
         $.ajax({
             url: queryURL2,
@@ -73,7 +56,7 @@ $(".button1").on("click", function (event) {
                 $("p:last-child").css("background-color", "red");
 
         })
-        var queryURL3 = "http://api.openweathermap.org/data/2.5/forecast?q=" + input_cityEl + "&appid=" + yourKey + "&units=imperial";
+        var queryURL3 = "http://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&appid=" + yourKey + "&units=imperial";
 
         $.ajax({
             url: queryURL3,
@@ -98,43 +81,22 @@ $(".button1").on("click", function (event) {
                 $("#containerForecast").append(card1);
             }
         })
-    })
-})
+    });
+}
 
-// function pageLoad() {
-//     // var cityArray=JSON.parse(localStorage.getItem("cities")) || [];
+var searchAfterPageLoad = function() {
+    // Search for recent city if city exist in array of history
+    if(cityArray.length > 0) {
+        getCityWeather(cityArray[cityArray.length - 1]);
+    }
+}
 
-//     var lastSearch = JSON.parse(localStorage.getItem("cities"));
-//     var searchDiv = $("<button class='btn border text-muted mt-1 shadow-sm bg-white rounded' style='width: 12rem;'>").text(lastSearch);
-//     var psearch = $("<div>");
-//     psearch.append(searchDiv)
-//     $("#searchhistory").prepend(psearch);
-// }
+$(".button1").on("click", function (event) {
+    event.preventDefault();
 
+    var input_cityEl = $("#input_city").val();
+    getCityWeather(input_cityEl);
+});
 
-// $("#dt_txt").append($("<p>").text(response.list[i].dt_txt));
-                // $("#forecast").append($("<p>").text(`Temperature is ${response.list[i].main.temp}`));
-                // $("#forecast").append($("<p>").text(`Humidity is ${response.list[i].main.humidity}`));
-                // $("#forcast").append (dt_txt);
-                // $("#containerForecast").append(forecast);
-            // var history=[]; 
+searchAfterPageLoad();
 
-            // var h2El = $("<h2>");
-            // h2El.text(input_cityEl);
-            // city.append(h2El);
-            //  localStorage.setItem("city", input_cityEl);
-            // var result = response.;
-            // console.log(response.list[0]);
-
-
-
-
-
-
-
-// for(var i=0;i<history.length;i++){
-    //    history[history.length] = history.push(input_cityEl);
-    // console.log("History array "+ history[i]);
-    // localStorage.setItem("city", input_cityEl);
-    // $(`#${dateArray[i]}`).append(localStorage.getItem("city"));
-    // }
