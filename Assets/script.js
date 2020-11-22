@@ -1,7 +1,26 @@
 // Getting values stored in local storage
-
-
 var cityArray = JSON.parse(localStorage.getItem("cities")) || [];
+
+
+// showinh history of cities searched
+function showingCities(){
+    $("#cities").empty();
+    for(var i=0;i<cityArray.length;i++){
+        var newCity=$("<li>");
+        var cityBtn=$("<button>");
+        cityBtn.text(cityArray[i]);
+        newCity.attr("class","list-group-item");
+        cityBtn.attr("class","btn customBtn");
+        cityBtn.attr("id",cityArray[i]);
+        var removeIcon=$("<button>").attr("class","btn fa fa-times-circle");
+        removeIcon.attr("id",i);
+        newCity.append(cityBtn);
+        newCity.append(removeIcon);
+        $("#cities").append(newCity);
+    }
+
+    
+}
 // method to get city name and give value of temp, humidity etc
 var getCityWeather = function(cityName) {
     var city = $("#city");
@@ -32,8 +51,15 @@ var getCityWeather = function(cityName) {
         if (!cityArray.includes(currentName)) {
             cityArray.push(currentName);
         }
+        else{
+            var indexOfCity = cityArray.indexOf(currentName);     // get index where city is located
+            cityArray.splice(indexOfCity, 1);    // remove city from array at desired index
+            cityArray.push(currentName);
+        }
+
         // Storing all the serched cities locally
         localStorage.setItem("cities", JSON.stringify(cityArray));
+
         // getting icon from object
         var image = (`<img src="https://openweathermap.org/img/wn/${response.weather[0].icon}@2x.png">`);
         h2El.append(`${currentName} ${image}`);
@@ -92,23 +118,32 @@ var getCityWeather = function(cityName) {
                 // appending the card everytime into the containerForecast
                 $("#containerForecast").append(card1);
             }
+        
         })
+        // showingCities();
     });
+    
 }
+
 // This method is use to load the page with the information of the last searched city
 var searchAfterPageLoad = function() {
     // Search for recent city if city exist in array of history
     if(cityArray.length > 0) {
-        getCityWeather(cityArray[cityArray.length - 1]);
+    getCityWeather(cityArray[cityArray.length - 1]);
+    
     }
+    
 }
-// Event Listener
+
+
+// Event Listener // main handler
 $(".button1").on("click", function (event) {
     event.preventDefault();
-
     var input_cityEl = $("#input_city").val();
     getCityWeather(input_cityEl);
+   
 });
 // calling method
+
 searchAfterPageLoad();
 
